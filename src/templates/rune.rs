@@ -6,6 +6,7 @@ pub struct RuneHtml {
   pub id: RuneId,
   pub mintable: bool,
   pub parent: Option<InscriptionId>,
+  pub pubkey: String,
 }
 
 impl PageContent for RuneHtml {
@@ -50,6 +51,7 @@ mod tests {
           txid: Txid::all_zeros(),
           index: 0,
         }),
+        pubkey: "".to_string(),
       },
       "<h1>B•CGDENLQRQWDSLRUGSNLBTMFIJAV</h1>
 .*<a href=/inscription/.*<iframe .* src=/preview/0{64}i0></iframe></a>.*
@@ -130,6 +132,7 @@ mod tests {
         id: RuneId { block: 10, tx: 9 },
         mintable: false,
         parent: None,
+        pubkey: "".to_string(),
       },
       "<h1>B•CGDENLQRQWDSLRUGSNLBTMFIJAV</h1>
 <dl>.*
@@ -164,6 +167,7 @@ mod tests {
         id: RuneId { block: 10, tx: 9 },
         mintable: false,
         parent: None,
+        pubkey: "".to_string(),
       },
       "<h1>B•CGDENLQRQWDSLRUGSNLBTMFIJAV</h1>
 <dl>.*
@@ -203,6 +207,7 @@ mod tests {
         id: RuneId { block: 10, tx: 9 },
         mintable: false,
         parent: None,
+        pubkey: "".to_string(),
       },
       "<h1>B•CGDENLQRQWDSLRUGSNLBTMFIJAV</h1>
 <dl>.*

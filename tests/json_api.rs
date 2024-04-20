@@ -555,6 +555,7 @@ fn get_runes() {
         txid: a.output.reveal,
         index: 0,
       }),
+      pubkey: "6a5d04140a1401".to_string(),
     }
   );
 

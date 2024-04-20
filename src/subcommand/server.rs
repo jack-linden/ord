@@ -668,6 +668,13 @@ impl Server {
         .rune(rune)?
         .ok_or_not_found(|| format!("rune {rune}"))?;
 
+      let runestone: Runestone = Runestone {
+        mint: Some(id),
+        ..default()
+      };
+
+      let pubkey = runestone.encipher().to_hex_string();
+
       let block_height = index.block_height()?.unwrap_or(Height(0));
 
       let mintable = entry.mintable((block_height.n() + 1).into()).is_ok();
@@ -678,6 +685,7 @@ impl Server {
           id,
           mintable,
           parent,
+          pubkey,
         })
         .into_response()
       } else {
@@ -686,6 +694,7 @@ impl Server {
           id,
           mintable,
           parent,
+          pubkey,
         }
         .page(server_config)
         .into_response()
